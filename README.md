@@ -1,2 +1,2 @@
-# magnus_libber
+# N_LIB
 Test
