@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   n_lstnew.c                                         :+:      :+:    :+:   */
+/*   n_lstadd_front.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nranna <nranna@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:23:12 by nranna            #+#    #+#             */
-/*   Updated: 2024/10/16 16:29:50 by nranna           ###   ########.fr       */
+/*   Created: 2024/10/16 16:30:59 by nranna            #+#    #+#             */
+/*   Updated: 2025/04/20 14:51:42 by nranna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "liber.h"
+#include "lib.h"
 
-t_list	*ft_lstnew(void *content)
+void	n_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*node;
-
-	node = NULL;
-	if (!content)
-		return (NULL);
-	node = (t_list *)malloc(sizeof(t_list));
-	if (!node)
-		return (NULL);
-	node->content = content;
-	node->next = NULL;
-	return (node);
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
+	return ;
 }

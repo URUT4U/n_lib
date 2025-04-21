@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   n_lstsize.c                                        :+:      :+:    :+:   */
+/*   n_lstnew.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nranna <nranna@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:34:17 by nranna            #+#    #+#             */
-/*   Updated: 2024/10/16 16:45:12 by nranna           ###   ########.fr       */
+/*   Created: 2024/10/16 16:23:12 by nranna            #+#    #+#             */
+/*   Updated: 2025/04/20 14:51:49 by nranna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "liber.h"
+#include "lib.h"
 
-int	n_lstsize(t_list *lst)
+t_list	*n_lstnew(void *content)
 {
-	int		count;
-	t_list	*lst_i;
-	
-	if (!lst)
-		return (0);
-	count = 0;
-	lst_i = lst;
-	while (lst_i)
-	{
-		count++;
-		lst_i = lst_i->next;
-	}
-	return (count);
+	t_list	*node;
+
+	node = NULL;
+	if (!content)
+		return (NULL);
+	node = (t_list *)malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

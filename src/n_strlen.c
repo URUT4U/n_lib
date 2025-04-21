@@ -1,17 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   n_putchar_fd.c                                     :+:      :+:    :+:   */
+/*   n_strlen.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nranna <nranna@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:10:23 by nranna            #+#    #+#             */
-/*   Updated: 2024/10/16 16:12:00 by nranna           ###   ########.fr       */
+/*   Created: 2025/04/19 21:29:51 by nranna            #+#    #+#             */
+/*   Updated: 2025/04/19 21:33:41 by nranna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	n_putchar_fd(char c, int fd)
+#include <unistd.h>
+
+size_t	n_strlen(const char *s)
 {
-	write(fd, &c, 1);
-	return ;
+	size_t	i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
